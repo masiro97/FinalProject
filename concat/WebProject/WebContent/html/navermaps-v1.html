@@ -293,9 +293,9 @@
 			  
 			  var executeString;
 			  
-			  if(tableNum == 1) executeString = "../cont?command=arrow";
-			  else if(tableNum == 2) executeString = "../cont?command=circle";
-			  else executeString = "../cont?command=fail";
+			  if(tableNum == 1) executeString = "../scont?command=arrow";
+			  else if(tableNum == 2) executeString = "../scont?command=circle";
+			  else executeString = "../scont?command=fail";
 			  xhttp.open("GET", executeString, true);
 			  xhttp.send();
 		}

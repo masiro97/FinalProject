@@ -87,11 +87,43 @@ public class AllController extends HttpServlet {
 				getRecordCount(request,response);
 			}else if(command.equals("searchStation")){
 				searchStation(request,response);
+			}else if(command.equals("insertKeyword")){
+				insertKeyword(request,response);
 			}else {
 				request.setAttribute("errorMsg","검색 시 문제 발생 재 시도 하세요");
 				request.getRequestDispatcher("errorView.jsp").forward(request, response);
 			}
 
+	}
+
+	private void insertKeyword(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		String url = "jsp/errorView.jsp";
+		
+		try {
+			
+			String keyword = request.getParameter("keyword");
+			System.out.println(keyword);
+			String[] keys = keyword.split(",");
+			int result = H_StationDAO.insertKeyword(keys[0],keys[1]);
+
+			if(result != 0) {
+				request.setAttribute("msg", "Success");
+				url = "jsp/insert.jsp";
+				
+			}else {
+				
+				request.setAttribute("msg", "검색된 데이터가 없습니다.");
+				url = "jsp/msgView.jsp";
+			}
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			request.setAttribute("errorMsg","검색 시 문제 발생 재 시도 하세요");
+			
+		}
+		request.getRequestDispatcher(url).forward(request, response);
 	}
 
 	private void searchStation(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

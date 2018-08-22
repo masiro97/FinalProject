@@ -37,7 +37,7 @@
 			document.getElementById('searchResult').style.display = 'block';
 			
 			 $.ajax({
-			        url:"cont?command=searchStation",
+			        url:"scont?command=searchStation",
 			        type:'GET',
 			        data: {keyword : $('#searchStation').val()},
 			        success:function(data){
@@ -50,8 +50,34 @@
 			        }
 			    });
 		});
+		
+		$('#searchStation').keyup(function(e){
+			if(e.keyCode == 40) {
+				
+			}
+		})
 	});
+	
+	$(function(){
+		$('#insertKeyword').on('click',function(){
 
+			 $.ajax({
+			        url:"scont?command=insertKeyword",
+			        type:'GET',
+			        data: {keyword : $('#searchStation').val()},
+			        success:function(data){
+			            window.opener.location.reload();
+			            self.close();
+			        },
+			        error:function(jqXHR, textStatus, errorThrown){
+			            self.close();
+			        }
+			    });
+		});
+	});
+	
+
+	
 	</script>
 	
 	<script type="text/javascript">
@@ -67,7 +93,7 @@
 		    	}
 		    }
 		  
-		  xhttp.open("GET", "cont?command=stationMap", true);
+		  xhttp.open("GET", "scont?command=stationMap", true);
 		  xhttp.send();
 	}
 	
@@ -75,6 +101,7 @@
 		document.getElementById('searchStation').value = obj;
 		document.getElementById('searchResult').style.display = 'none';
 	}
+	
 	
 	</script>
 </head>
@@ -86,7 +113,7 @@
                 <div class="input-group stylish-input-group">
                     <input type="text" class="form-control"  placeholder="Search" id="searchStation">
                     <span class="input-group-addon">
-                        <button type="submit">
+                        <button type="submit" id="insertKeyword">
                             <span class="glyphicon glyphicon-search"></span>
                         </button>  
                     </span>

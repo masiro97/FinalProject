@@ -331,13 +331,13 @@
 		  
 		  var executeString;
 		  
-		  if(tableNum == 1) executeString = "../cont?command=h_chart1";
-		  else if(tableNum == 2) executeString = "../cont?command=h_chart2";
-		  else if(tableNum == 3) executeString = "../cont?command=h_chart3";
-		  else if(tableNum == 4) executeString = "../cont?command=h_chart4";
-		  else if(tableNum == 5) executeString = "../cont?command=h_chart5";
-		  else if(tableNum == 6) executeString = "../cont?command=h_chart6";
-		  else executeString = "../cont?command=fail";
+		  if(tableNum == 1) executeString = "../scont?command=h_chart1";
+		  else if(tableNum == 2) executeString = "../scont?command=h_chart2";
+		  else if(tableNum == 3) executeString = "../scont?command=h_chart3";
+		  else if(tableNum == 4) executeString = "../scont?command=h_chart4";
+		  else if(tableNum == 5) executeString = "../scont?command=h_chart5";
+		  else if(tableNum == 6) executeString = "../scont?command=h_chart6";
+		  else executeString = "../scont?command=fail";
 		  xhttp.open("GET", executeString, true);
 		  xhttp.send();
 	}

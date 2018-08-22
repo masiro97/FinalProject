@@ -16,8 +16,20 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>AllController</servlet-name>
-    <url-pattern>/cont</url-pattern>
+    <url-pattern>/scont</url-pattern>
   </servlet-mapping>
+  
+    <servlet>
+    <description></description>
+    <display-name>CitizenBoardList</display-name>
+    <servlet-name>CitizenBoardList</servlet-name>
+    <servlet-class>controller.DataController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CitizenBoardList</servlet-name>
+    <url-pattern>/CitizenBoardList</url-pattern>
+  </servlet-mapping>
+  
   <session-config>
     <session-timeout>10</session-timeout>
   </session-config>

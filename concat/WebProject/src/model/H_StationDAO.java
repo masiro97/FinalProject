@@ -64,4 +64,28 @@ public class H_StationDAO {
 		return all;
 	}
 	
+	public static int insertKeyword(String ID, String name) throws Exception {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		
+		int result = 0;
+		
+		try {
+			
+			con = DBUtil.getConnection();
+			String sql = "insert into h_search values(?,?)";
+			
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, ID);
+			pstmt.setString(2, name);
+			rset = pstmt.executeQuery();
+			result = 1;
+			
+		}finally {
+			DBUtil.close(con, pstmt, rset);
+		}
+		
+		return result;
+	}
 }
